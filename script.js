@@ -18,18 +18,18 @@ function getComputerChoice() {
 function resultDisplay(result, userChoice, computerChoice) {
     switch(result) {
         case "userWin": userScore++;
-                        result.textContent = document.createTextNode(userChoice + "<sub>user</sub> beats " + computerChoice + "<sub>comp</sub>. You Win!");
+                        result.innerHTML = userChoice + "<sub>user</sub> beats " + computerChoice + "<sub>comp</sub>. You Win!";
                         scoreBoard.style.border = "5px solid green";
                         break;
         case "compWin": compScore++;
-                        result.textContent = document.createTextNode(computerChoice + "<sub>comp</sub> beats " + userChoice + "<sub>user</sub>. You Lost!");
+                        result.innerHTML = computerChoice + "<sub>comp</sub> beats " + userChoice + "<sub>user</sub>. You Lost!";
                         scoreBoard.style.border = "5px solid red";
                         break;
         case "tie": scoreBoard.style.border = "5px solid grey";
-                    result.textContent = document.createTextNode(userChoice + "<sub>user</sub> equals " + computerChoice + "<sub>comp</sub>. It's tie!");
+                    result.innerHTML = userChoice + "<sub>user</sub> equals " + computerChoice + "<sub>comp</sub>. It's tie!";
                     break;
     }
-    setInterval(()=> {
+    setTimeout(()=> {
         scoreBoard.style.border = "5px solid var(--darkBlue)";
     }, 1500);
 
