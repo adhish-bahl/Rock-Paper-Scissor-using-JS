@@ -11,6 +11,7 @@
     padding: 0%;
     box-sizing: border-box;
     color: var(--secondaryColor);
+    font-family: asap;
 }
 
 body {
@@ -30,7 +31,6 @@ header {
 header h1 {
     color: var(--primaryColor);
     font-size: 3rem;
-    font-family: asap;
 }
 
 section {
@@ -46,7 +46,6 @@ section {
     margin: 30px auto;
     margin-bottom: 0% !important;
     border-radius: 10px;
-    font-family: asap;
     position: relative;
 }
 
@@ -77,6 +76,13 @@ section {
 
 .choice img {
     margin: 0px 10px;
+    width: 130px;
+    filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.73));
+    transition: all 0.3s ease ;
+}
+
+.choice img:hover {
+    transform: scale(1.06);
 }
 
 .choice h2 {
