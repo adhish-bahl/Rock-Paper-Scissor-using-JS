@@ -9,29 +9,32 @@ let userScore = 0;
 let compScore = 0;
 
 function getComputerChoice() {
-    const choice = ["rock", "paper", "scissors"]
+    const choice = ["Rock", "Paper", "Scissors"]
     let computerAction = choice[Math.floor(Math.random() * 3)];
     console.log(computerAction);
     return computerAction;
 }
 
-function resultDisplay(result, userChoice, computerChoice) {
-    switch(result) {
+function resultDisplay(result123, userChoice, computerChoice) {
+    const subComp = "comp".fontsize(3).sub();
+    const subUser = "user".fontsize(3).sub();
+    switch(result123) {
         case "userWin": userScore++;
-                        result.innerHTML = userChoice + "<sub>user</sub> beats " + computerChoice + "<sub>comp</sub>. You Win!";
+                        // result.appendChild(userChoice + subUser + " beats " + computerChoice + subComp + ". You Win!")
+                        result.innerHTML = `${userChoice}${subUser}  beats  ${computerChoice}${subComp} . You Win!`;
                         scoreBoard.style.border = "5px solid green";
                         break;
         case "compWin": compScore++;
-                        result.innerHTML = computerChoice + "<sub>comp</sub> beats " + userChoice + "<sub>user</sub>. You Lost!";
+                        result.innerHTML = `${computerChoice}${subComp} beats ${userChoice}${subUser}. You Lost!`;
                         scoreBoard.style.border = "5px solid red";
                         break;
         case "tie": scoreBoard.style.border = "5px solid grey";
-                    result.innerHTML = userChoice + "<sub>user</sub> equals " + computerChoice + "<sub>comp</sub>. It's tie!";
+                    result.innerHTML = `${userChoice}${subUser} equals ${computerChoice}${subComp}. It's tie!"`;
                     break;
     }
     setTimeout(()=> {
         scoreBoard.style.border = "5px solid var(--darkBlue)";
-    }, 1500);
+    }, 500);
 
     userScoreDOM.textContent = userScore;
     compScoreDOM.textContent = compScore;
@@ -42,32 +45,32 @@ function compareAndScore(userChoice) {
     let computerChoice = getComputerChoice();
     
     switch(userChoice) {
-        case "rock": switch(computerChoice) {
-                            case "rock":  resultDisplay("tie", userChoice, computerChoice);
+        case "Rock": switch(computerChoice) {
+                            case "Rock":  resultDisplay("tie", userChoice, computerChoice);
                                         break;
-                            case "paper": resultDisplay("compWin", userChoice, computerChoice);
+                            case "Paper": resultDisplay("compWin", userChoice, computerChoice);
                                         break;
-                            case "scissors": resultDisplay("userWin", userChoice, computerChoice);
+                            case "Scissors": resultDisplay("userWin", userChoice, computerChoice);
                                             break;
                         }
                         break;
 
-        case "paper": switch(computerChoice) {
-                            case "rock": resultDisplay("userWin", userChoice, computerChoice);
+        case "Paper": switch(computerChoice) {
+                            case "Rock": resultDisplay("userWin", userChoice, computerChoice);
                                         break;
-                            case "paper": resultDisplay("tie", userChoice, computerChoice);
+                            case "Paper": resultDisplay("tie", userChoice, computerChoice);
                                         break;
-                            case "scissors": resultDisplay("compWin", userChoice, computerChoice);
+                            case "Scissors": resultDisplay("compWin", userChoice, computerChoice);
                                             break;
                         }
                         break;
         
-        case "scissors": switch(computerChoice) {
-                            case "rock": resultDisplay("compWin", userChoice, computerChoice);
+        case "Scissors": switch(computerChoice) {
+                            case "Rock": resultDisplay("compWin", userChoice, computerChoice);
                                         break;
-                            case "paper": resultDisplay("userWin", userChoice, computerChoice);
+                            case "Paper": resultDisplay("userWin", userChoice, computerChoice);
                                         break;
-                            case "scissors": resultDisplay("tie", userChoice, computerChoice);
+                            case "Scissors": resultDisplay("tie", userChoice, computerChoice);
                                             break;
                         }
                         break;
@@ -75,14 +78,14 @@ function compareAndScore(userChoice) {
 }
 
 rock.addEventListener("click", ()=> {
-    compareAndScore("rock");
+    compareAndScore("Rock");
 });
 
 paper.addEventListener("click", ()=> {
-    compareAndScore("paper");
+    compareAndScore("Paper");
 });
 
 scissors.addEventListener("click", ()=> {
-    compareAndScore("scissors");
+    compareAndScore("Scissors");
 });
 
